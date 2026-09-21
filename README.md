@@ -21,9 +21,3 @@ The application splits its functionality into two distinct generation methods:
 ```
 
 ---
-
-
-
-<FollowUp>
-Would you like me to generate a fully styled, markdown-ready **complete README file** including **installation steps**, or do you need help setting up **GitHub Pages** to deploy it for your CV?
-</FollowUp>
