@@ -22,9 +22,6 @@ The application splits its functionality into two distinct generation methods:
 
 ---
 
-## 💼 CV / Resume Project Bullet Points
-*Choose 2 or 3 of these punchy bullet points to add under your **Projects** section on your resume:*
-
 *   **Developed an interactive web application** utilizing vanilla JavaScript, HTML5, and advanced CSS3 to generate customizable, secure user credentials.
 *   **Implemented the Web Crypto API** (`window.crypto.getRandomValues`) to engineer hardware-backed, cryptographically secure password profiles alongside traditional pseudo-random generation methods.
 *   **Designed a highly responsive UI/UX interface** featuring complex 3D CSS card-flip layouts and custom fluid keyframe-animated borders.
