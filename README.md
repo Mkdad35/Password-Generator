@@ -22,10 +22,7 @@ The application splits its functionality into two distinct generation methods:
 
 ---
 
-*   **Developed an interactive web application** utilizing vanilla JavaScript, HTML5, and advanced CSS3 to generate customizable, secure user credentials.
-*   **Implemented the Web Crypto API** (`window.crypto.getRandomValues`) to engineer hardware-backed, cryptographically secure password profiles alongside traditional pseudo-random generation methods.
-*   **Designed a highly responsive UI/UX interface** featuring complex 3D CSS card-flip layouts and custom fluid keyframe-animated borders.
-*   **Optimized application performance** by structuring dynamic DOM insertion pipelines to handle continuous data logs efficiently within scrollable view containers.
+
 
 <FollowUp>
 Would you like me to generate a fully styled, markdown-ready **complete README file** including **installation steps**, or do you need help setting up **GitHub Pages** to deploy it for your CV?
