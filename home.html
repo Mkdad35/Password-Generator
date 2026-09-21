@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="passtyle.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Card 1: Random Password -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-face front">
+                    <h2>Generate a random password</h2>
+                    <h3>Random Password using Math</h3>
+                    <p>Note: This is not a secure password generator</p>
+                </div>
+                <div class="card-face back" data-type="random">
+                    <button id="random-password">Generate random Password</button>
+                    <h3>Generated Passwords</h3>
+                    <!-- JS will dynamically append the ul#random-list here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2: Crypto Password -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-face front">
+                    <h2>Cryptographically Secure Password</h2>
+                    <h3>Crypto Password</h3>
+                    <p>Note: This is a secure password generator</p>
+                </div>
+                <div class="card-face back" data-type="crypto">
+                    <button id="crypto-password">Generate cryptographically Password</button>
+                    <h3>Generated Passwords</h3>
+                    <!-- JS will dynamically append the ul#crypto-list here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="password.js"></script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+/* --- Base & Layout --- */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #0a0a0a; /* Deep black background */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    gap: 3rem;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* --- 3D Card Flip Logic --- */
+.card {
+    width: 320px;
+    height: 420px;
+    perspective: 1000px; /* Creates the 3D space */
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(0.4, 0.0, 0.2, 1); /* Smooth easing */
+    transform-style: preserve-3d; /* Ensures children stay in 3D space */
+}
+
+/* The actual flip trigger */
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Changed from center to prevent content clipping */
+    align-items: center;
+    padding: 25px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+
+/* --- Animated Border Logic --- */
+/* We use the background-clip trick to create a smooth, flowing gradient border */
+
+/* --- Front Face Styling --- */
+.front {
+    border: 3px solid transparent;
+    /* Layer 1: Inner background (padding-box) | Layer 2: Animated border (border-box) */
+    background: 
+        linear-gradient(145deg, #1a1a1a 0%, #2c0505 100%) padding-box,
+        linear-gradient(90deg, #DC143C, #FFD700, #DC143C) border-box;
+    background-size: 100% 100%, 200% 100%;
+    animation: flowBorder 3s linear infinite;
+    color: #FFD700; /* Yellow */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(220, 20, 60, 0.3);
+}
+
+.front h2 {
+    color: #FFD700;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+}
+
+.front h3 {
+    color: #fff;
+    margin: 10px 0;
+    font-weight: normal;
+}
+
+.front p {
+    color: #aaa;
+    font-size: 0.85rem;
+    margin-bottom: 25px;
+    font-style: italic;
+}
+
+/* --- Back Face Styling --- */
+.back {
+    border: 3px solid transparent;
+    background: 
+        linear-gradient(145deg, #DC143C 0%, #8B0000 100%) padding-box,
+        linear-gradient(90deg, #FFD700, #111, #FFD700) border-box;
+    background-size: 100% 100%, 200% 100%;
+    animation: flowBorder 3s linear infinite reverse; /* Flows in the opposite direction */
+    color: #111; /* Black text */
+    transform: rotateY(180deg); /* Pre-rotate the back face */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+.back h3 {
+    color: #FFD700;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* --- Keyframes for the flowing border --- */
+@keyframes flowBorder {
+    0% {
+        background-position: 0% 0%, 0% 50%;
+    }
+    100% {
+        background-position: 0% 0%, 200% 50%;
+    }
+}
+
+/* --- Buttons --- */
+button {
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #111; /* Black text */
+    background-color: #FFD700; /* Yellow */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(220, 20, 60, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+button:hover {
+    background-color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(255, 215, 0, 0.5);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* --- Generated Password List Styling --- */
+ul {
+    list-style-type: none;
+    padding: 10px;
+    margin: 0;
+    width: 100%;
+    max-height: 220px;
+    overflow-y: auto;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+li {
+    background: #111; /* Black */
+    color: #FFD700; /* Yellow */
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    font-weight: bold;
+    word-break: break-all;
+    border-left: 4px solid #DC143C; /* Crimson Red accent */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+li:last-child {
+    margin-bottom: 0;
+}
+
+/* Custom Scrollbar for the list */
+ul::-webkit-scrollbar {
+    width: 6px;
+}
+ul::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.1);
+    border-radius: 3px;
+}
+ul::-webkit-scrollbar-thumb {
+    background: #FFD700;
+    border-radius: 3px;
+}
